@@ -39,22 +39,22 @@ Next, import the list of ID numbers as an array.
 
 ```Python
 with open("claimantlist.csv", newline='', encoding='utf-8-sig') as csvfile:
-    extensionDateList = csv.reader(csvfile, delimiter=',')
-    claimantslist = []
-    for row in extensionDateList:
-        claimantslist.append(row)
+    extension_date_list = csv.reader(csvfile, delimiter=',')
+    claimants_list = []
+    for row in extension_date_list:
+        claimants_list.append(row)
 ```
 
 ### Set New Follow Up Date
 The follow up date is set to thirty days from today's date, unless it is over a weekend, in which case it is set to Monday.
 
 ```Python
-newdate = date.today() + timedelta(days = 30)
+new_date = date.today() + timedelta(days = 30)
 
-if newdate.weekday() == 5:
-    newdate = newdate + timedelta(days = 2)
-elif newdate.weekday() == 6:
-    newdate = newdate + timedelta(days = 1)
+if new_date.weekday() == 5:
+    new_date = new_date + timedelta(days = 2)
+elif new_date.weekday() == 6:
+    new_date = new_date + timedelta(days = 1)
 else:
     pass
 ```
@@ -63,7 +63,7 @@ else:
 The page is loaded for each claimant using a csv file containing the page IDs. 
 
 ```Python
-for row in claimantslist:
+for row in claimants_list:
     browser.get("internalsite.com/Edit.aspx?Id="+str(row[0]))
 
     browser.maximize_window()
@@ -74,6 +74,6 @@ for row in claimantslist:
     extension_date.clear()
     extension_date.send_keys(str(newdate))
 
-    OK_button = browser.find_element(By.ID, "ok_button")
-    OK_button.click()
+    ok_button = browser.find_element(By.ID, "ok_button")
+    ok_button.click()
 ```
