@@ -59,7 +59,7 @@ else:
     pass
 ```
 
-## Update Follow Up Date on Page
+### Update Follow Up Date on Page
 The page is loaded for each claimant using a csv file containing the page IDs. 
 
 ```Python
