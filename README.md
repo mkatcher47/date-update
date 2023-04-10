@@ -4,7 +4,7 @@ This program will update the follow up date for a bulk set of pages using a prov
 
 ## Create the list of Page IDs
 
-With a provided list of names for follow up, us a VLOOKUP command in Excel to identify the associated page ID numbers. Save these numbers as a csv file as 'claimantlist.csv'.
+With a provided list of names for follow up, use a VLOOKUP command in Excel to identify the associated page ID numbers. Save these numbers as a csv file as 'claimantlist.csv'.
 
 ## Run Update
 
