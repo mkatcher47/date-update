@@ -16,6 +16,9 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Seleniu
 pip install -U selenium
 ```
 
+### Initialize the Program
+
+Begin by importing the required packages and creating an instance for the webdriver.
 
 ```Python
 import csv
@@ -30,7 +33,9 @@ import calendar
 browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 ```
 
-## Load List of Claimants for Follow Up Date Update
+### Load List of Claimants for Follow Up Date Update
+
+Next, import the list of ID numbers as an array.
 
 ```Python
 with open("claimantlist.csv", newline='', encoding='utf-8-sig') as csvfile:
@@ -40,8 +45,8 @@ with open("claimantlist.csv", newline='', encoding='utf-8-sig') as csvfile:
         claimantslist.append(row)
 ```
 
-## Set New Follow Up Date
-## The follow up date is set to thirty days from today's date, unless it is over a weekend, in which case it is set to Monday.
+### Set New Follow Up Date
+The follow up date is set to thirty days from today's date, unless it is over a weekend, in which case it is set to Monday.
 
 ```Python
 newdate = date.today() + timedelta(days = 30)
@@ -55,7 +60,7 @@ else:
 ```
 
 ## Update Follow Up Date on Page
-## The page is loaded for each claimant using a csv file containing the page IDs. 
+The page is loaded for each claimant using a csv file containing the page IDs. 
 
 ```Python
 for row in claimantslist:
